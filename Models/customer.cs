@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace mb905315_MIS4200
+namespace mb905315_MIS4200.Models
 {
     public class customer
     {
@@ -18,7 +18,6 @@ namespace mb905315_MIS4200
         public string phone { get; set; }
 
         public DateTime customerSince { get; set; }
-
-
+        public ICollection<Orders> Orders { get; set; }
     }
 }
