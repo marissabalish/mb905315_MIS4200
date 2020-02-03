@@ -14,7 +14,7 @@ namespace mb905315_MIS4200.Models
         public int orderID { get; set; }
         public virtual Orders Order { get; set; }
         // the next two properties link the orderDetail to the Product
-        public int productID { get; set; }
+        public int productsID { get; set; }
         public virtual Products Product { get; set; }
     }
 }

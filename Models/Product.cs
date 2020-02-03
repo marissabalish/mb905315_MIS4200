@@ -7,7 +7,7 @@ namespace mb905315_MIS4200.Models
 {
     public class Products
     {
-        public int productID { get; set; }
+        public int productsID { get; set; }
         public string description { get; set; }
         public decimal unitCost { get; set; }
         // add any other fields as appropriate

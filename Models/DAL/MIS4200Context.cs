@@ -15,6 +15,9 @@ namespace mb905315_MIS4200.Models.DAL
         }
         public DbSet<Orders> Orders { get; set; }
         public DbSet<customer> customers { get; set; }
-   
+
+        public System.Data.Entity.DbSet<mb905315_MIS4200.Models.Products> Products { get; set; }
+
+        public System.Data.Entity.DbSet<mb905315_MIS4200.Models.orderDetail> orderDetails { get; set; }
     }
 }
