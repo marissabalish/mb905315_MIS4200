@@ -19,5 +19,13 @@ namespace mb905315_MIS4200.Models
 
         public DateTime customerSince { get; set; }
         public ICollection<Orders> Orders { get; set; }
+
+        public string fullName
+        {
+            get
+            {
+                return customerLastName + ", " + customerFirstName;
+            }
+        }
     }
 }
