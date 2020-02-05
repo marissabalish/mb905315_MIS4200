@@ -19,5 +19,14 @@ namespace mb905315_MIS4200.Models.DAL
         public System.Data.Entity.DbSet<mb905315_MIS4200.Models.Products> Products { get; set; }
 
         public System.Data.Entity.DbSet<mb905315_MIS4200.Models.orderDetail> orderDetails { get; set; }
+
+        // add this method - it will be used later
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            //modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            base.OnModelCreating(modelBuilder);
+        }
+
+
     }
 }
