@@ -9,16 +9,19 @@ namespace mb905315_MIS4200.Models.DAL
 {
     public class MIS4200Context : DbContext
     {
-
         public MIS4200Context() : base("name=DefaultConnection")
         {
+
+            // this method is a 'constructor' and is called when a new context is created
+            // the base attribute says which connection string to use
         }
-        public DbSet<Orders> Orders { get; set; }
-        public DbSet<customer> customers { get; set; }
+        // Include each object here. The value inside <> is the name of the class,
+        // the value outside should generally be the plural of the class name
+        // and is the name used to reference the entity in code
+        public DbSet<Patient> Patient { get; set; }
+        public DbSet<Visit> VisitDetails { get; set; }
+        public DbSet<Doctor> Doctor { get; set; }
 
-        public System.Data.Entity.DbSet<mb905315_MIS4200.Models.Products> Products { get; set; }
-
-        public System.Data.Entity.DbSet<mb905315_MIS4200.Models.orderDetail> orderDetails { get; set; }
 
         // add this method - it will be used later
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

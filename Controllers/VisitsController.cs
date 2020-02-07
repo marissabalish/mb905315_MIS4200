@@ -11,112 +11,116 @@ using mb905315_MIS4200.Models.DAL;
 
 namespace mb905315_MIS4200.Controllers
 {
-    public class orderDetailsController : Controller
+    public class VisitsController : Controller
     {
         private MIS4200Context db = new MIS4200Context();
 
-        // GET: orderDetails
+        // GET: Visits
         public ActionResult Index()
         {
-            var orderDetails = db.orderDetails.Include(o => o.Product);
-            return View(orderDetails.ToList());
+            var visitDetails = db.VisitDetails.Include(v => v.Doctor).Include(v => v.Patient);
+            return View(visitDetails.ToList());
         }
 
-        // GET: orderDetails/Details/5
+        // GET: Visits/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            orderDetail orderDetail = db.orderDetails.Find(id);
-            if (orderDetail == null)
+            Visit visit = db.VisitDetails.Find(id);
+            if (visit == null)
             {
                 return HttpNotFound();
             }
-            return View(orderDetail);
+            return View(visit);
         }
 
-        // GET: orderDetails/Create
+        // GET: Visits/Create
         public ActionResult Create()
         {
-            ViewBag.productsID = new SelectList(db.Products, "productsID", "description");
+            ViewBag.doctorID = new SelectList(db.Doctor, "doctorID", "firstName");
+            ViewBag.patientID = new SelectList(db.Patient, "patientID", "firstName");
             return View();
         }
 
-        // POST: orderDetails/Create
+        // POST: Visits/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "orderdetailID,qtyOrdered,price,orderID,productsID")] orderDetail orderDetail)
+        public ActionResult Create([Bind(Include = "visitID,description,visitDate,patientID,doctorID")] Visit visit)
         {
             if (ModelState.IsValid)
             {
-                db.orderDetails.Add(orderDetail);
+                db.VisitDetails.Add(visit);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.productsID = new SelectList(db.Products, "productsID", "description", orderDetail.productsID);
-            return View(orderDetail);
+            ViewBag.doctorID = new SelectList(db.Doctor, "doctorID", "firstName", visit.doctorID);
+            ViewBag.patientID = new SelectList(db.Patient, "patientID", "firstName", visit.patientID);
+            return View(visit);
         }
 
-        // GET: orderDetails/Edit/5
+        // GET: Visits/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            orderDetail orderDetail = db.orderDetails.Find(id);
-            if (orderDetail == null)
+            Visit visit = db.VisitDetails.Find(id);
+            if (visit == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.productsID = new SelectList(db.Products, "productsID", "description", orderDetail.productsID);
-            return View(orderDetail);
+            ViewBag.doctorID = new SelectList(db.Doctor, "doctorID", "firstName", visit.doctorID);
+            ViewBag.patientID = new SelectList(db.Patient, "patientID", "firstName", visit.patientID);
+            return View(visit);
         }
 
-        // POST: orderDetails/Edit/5
+        // POST: Visits/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "orderdetailID,qtyOrdered,price,orderID,productsID")] orderDetail orderDetail)
+        public ActionResult Edit([Bind(Include = "visitID,description,visitDate,patientID,doctorID")] Visit visit)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(orderDetail).State = EntityState.Modified;
+                db.Entry(visit).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.productsID = new SelectList(db.Products, "productsID", "description", orderDetail.productsID);
-            return View(orderDetail);
+            ViewBag.doctorID = new SelectList(db.Doctor, "doctorID", "firstName", visit.doctorID);
+            ViewBag.patientID = new SelectList(db.Patient, "patientID", "firstName", visit.patientID);
+            return View(visit);
         }
 
-        // GET: orderDetails/Delete/5
+        // GET: Visits/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            orderDetail orderDetail = db.orderDetails.Find(id);
-            if (orderDetail == null)
+            Visit visit = db.VisitDetails.Find(id);
+            if (visit == null)
             {
                 return HttpNotFound();
             }
-            return View(orderDetail);
+            return View(visit);
         }
 
-        // POST: orderDetails/Delete/5
+        // POST: Visits/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            orderDetail orderDetail = db.orderDetails.Find(id);
-            db.orderDetails.Remove(orderDetail);
+            Visit visit = db.VisitDetails.Find(id);
+            db.VisitDetails.Remove(visit);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

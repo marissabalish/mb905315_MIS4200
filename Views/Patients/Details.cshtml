@@ -1,29 +1,29 @@
-﻿@model mb905315_MIS4200.Models.customer
+﻿@model mb905315_MIS4200.Models.Patient
 
 @{
-    ViewBag.Title = "Customer Details";
+    ViewBag.Title = "Details";
 }
 
-<h2>Customer Details</h2>
+<h2>Details</h2>
 
 <div>
-    <h4>customer</h4>
+    <h4>Patient</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.customerFirstName)
+            @Html.DisplayNameFor(model => model.firstName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.customerFirstName)
+            @Html.DisplayFor(model => model.firstName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.customerLastName)
+            @Html.DisplayNameFor(model => model.lastName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.customerLastName)
+            @Html.DisplayFor(model => model.lastName)
         </dd>
 
         <dt>
@@ -43,16 +43,16 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.customerSince)
+            @Html.DisplayNameFor(model => model.patientSince)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.customerSince)
+            @Html.DisplayFor(model => model.patientSince)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.customerID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.patientID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
