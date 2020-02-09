@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<mb905315_MIS4200.Models.Visit>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Index Visit";
 }
 
-<h2>Index</h2>
+<h2>Index Visit</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -15,7 +15,13 @@
             @Html.DisplayNameFor(model => model.Doctor.firstName)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Doctor.lastName)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Patient.firstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Patient.lastName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.description)
@@ -32,7 +38,13 @@
             @Html.DisplayFor(modelItem => item.Doctor.firstName)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Doctor.lastName)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Patient.firstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Patient.lastName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.description)

@@ -14,6 +14,8 @@ namespace mb905315_MIS4200.Models
  
         // the next two properties link the visitDetail to the Patient
         public int patientID { get; set; }
+
+
         public virtual Patient Patient { get; set; }
        
         // the next two properties link the vistiDetail to the Doctor
