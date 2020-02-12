@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,13 +8,20 @@ namespace mb905315_MIS4200.Models
 {
     public class Patient
     {
-        public int patientID { get; set; }
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public string email { get; set; }
-        public string phone { get; set; }
-        public DateTime patientSince { get; set; }
 
+        public int patientID { get; set; }
+
+        [Display (Name = "First name")]
+        public string firstName { get; set; }
+        [Display (Name = "Last name")]
+        public string lastName { get; set; }
+        //[Display (Name = "Email")]
+        public string email { get; set; }
+        //[Display (Name = "Mobile phone")]
+        public string phone { get; set; }
+        //[Display (Name = "Patient since")]
+        public DateTime patientSince { get; set; }
+        //[Display (Name = "Date of visit")]
         public ICollection<Visit> Vist { get; set; }
 
         // add any other fields as appropriate
