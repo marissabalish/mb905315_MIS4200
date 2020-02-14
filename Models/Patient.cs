@@ -15,13 +15,13 @@ namespace mb905315_MIS4200.Models
         public string firstName { get; set; }
         [Display (Name = "Last name")]
         public string lastName { get; set; }
-        //[Display (Name = "Email")]
+        [Display (Name = "Email")]
         public string email { get; set; }
-        //[Display (Name = "Mobile phone")]
+        [Display (Name = "Mobile phone")]
         public string phone { get; set; }
-        //[Display (Name = "Patient since")]
+        [Display (Name = "Patient since")]
         public DateTime patientSince { get; set; }
-        //[Display (Name = "Date of visit")]
+        [Display (Name = "Date of visit")]
         public ICollection<Visit> Vist { get; set; }
 
         // add any other fields as appropriate
