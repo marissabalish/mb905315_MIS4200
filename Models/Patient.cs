@@ -15,6 +15,14 @@ namespace mb905315_MIS4200.Models
         public string firstName { get; set; }
         [Display (Name = "Last name")]
         public string lastName { get; set; }
+
+        public string fullName
+        {
+            get
+            {
+                return lastName + ", " + firstName;
+            }
+        }
         [Display (Name = "Email")]
         public string email { get; set; }
         [Display (Name = "Mobile phone")]

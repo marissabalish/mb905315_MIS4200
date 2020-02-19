@@ -10,11 +10,23 @@ namespace mb905315_MIS4200.Models
     {
         [Key]
         public int doctorID { get; set; }
+        [Display(Name = "First name")]
         public string firstName { get; set; }
-        public string lastName { get; set; }
-        public string email { get; set; }
-        public string phone { get; set; }
+        [Display(Name = "Last name")]
 
+        public string fullName
+        {
+            get 
+            {
+                return lastName + ", " + firstName;
+            }
+        }
+        public string lastName { get; set; }
+        [Display(Name = "Email")]
+        public string email { get; set; }
+        [Display(Name = "Mobile phone")]
+        public string phone { get; set; }
+        [Display(Name = "Visit date")]
         public ICollection<Visit> VisitDetails { get; set; }
 
         // add any other fields as appropriate

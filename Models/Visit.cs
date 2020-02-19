@@ -8,7 +8,11 @@ namespace mb905315_MIS4200.Models
     public class Visit
     {
         public int visitID { get; set; }
+
+
         public string description { get; set; }
+        //public string fullName
+
         public DateTime visitDate { get; set; }
 
  
@@ -17,9 +21,11 @@ namespace mb905315_MIS4200.Models
 
 
         public virtual Patient Patient { get; set; }
-       
+
         // the next two properties link the vistiDetail to the Doctor
         public int doctorID { get; set; }
         public virtual Doctor Doctor { get; set; }
+
+
     }
 }
