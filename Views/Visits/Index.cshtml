@@ -6,6 +6,17 @@
 
 <h2>Index Visit</h2>
 
+
+@using (Html.BeginForm("Index", "Visits", FormMethod.Get))
+{
+    <p>
+        Find by name: @Html.TextBox("searchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+
+
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -32,32 +43,33 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Doctor.firstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Doctor.lastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Patient.firstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Patient.lastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.visitDate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.visitID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.visitID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.visitID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doctor.firstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doctor.lastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patient.firstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patient.lastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.visitDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.visitID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.visitID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.visitID })
+            </td>
+        </tr>
+    }
 
 </table>
